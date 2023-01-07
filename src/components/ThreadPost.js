@@ -4,7 +4,14 @@ export const ThreadPost = () => {
 	const [textarea, setTextarea] = React.useState("");
 
 	const threadPost = ()=> {
-		const req = "https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads";
+		const btn = document.querySelector('btn');
+		if (textarea.length > 30){
+			alert("30文字以内で入力してください");
+			//stateとtextareaの初期化
+			document.querySelector('textarea').value = "";
+			setTextarea("");
+		}else{
+			const req = "https://2y6i6tqn41.execute-api.ap-northeast-1.amazonaws.com/threads";
 		fetch(req, {
 			method: "POST",
 			body: JSON.stringify({"title": textarea}),
@@ -16,10 +23,10 @@ export const ThreadPost = () => {
 		}).catch((error) => {
 			console.log(error);
 		})
-		//stateとtextareaの初期化
-		document.querySelector('textarea').value = "";
-		setTextarea("");
-
+			//stateとtextareaの初期化
+			document.querySelector('textarea').value = "";
+			setTextarea("");
+		}
 	}
 	return (
 		<div>
