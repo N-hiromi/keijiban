@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Header } from './components/Header';
 import { Home } from './pages/Home';
 import { New } from './pages/thread/New';
-import { Index } from './pages/thread/Index';
+import { Show } from './pages/thread/Show';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/thread/new" element={<New />} />
-        <Route path="/thread/:thread_id" element={<Index />} />
+        <Route path="/thread/:thread_id" element={<Show />} />
       </Routes>
     </Router>
   </div>
